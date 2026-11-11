@@ -1,6 +1,6 @@
 <title>Enrico Ali Wardhany</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Portofolio Enrico Ali Wardhany: administrasi, digital support, dan desain antarmuka.">
+<meta name="description" content="Portofolio Enrico Ali Wardhany: IT support, dasar-dasar cloud, administrasi, dan desain antarmuka.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -11,7 +11,8 @@
   --grid:rgba(15,22,41,.09); --accent:#2A47F5; --accent-ink:#FFFFFF; --accent-soft:#E1E6FF; --bar-soft:#B3BFFF;
   --mk:#FFE14D; --hl:#FFE14D; --hl-ink:#1A1500; --good:#0F7B58; --warn:#9A5B00; --bad:#BF2438;
   --bar:#F8F9FD; --shadow:rgba(15,22,41,.16);
-  --c-word:#2F5BFF; --c-xl:#0F9D6B; --c-fig:#E5484D;
+  --c-word:#2F5BFF; --c-xl:#0F9D6B; --c-fig:#E5484D; --c-cl:#7A4DFF;
+  --pap:#FFFFFF; --pap-ink:#0F1629; --pap-mute:#566079; --pap-side:#EEF1F8; --pap-acc:#2A47F5; --pap-hl:#FFE14D;
   --f-display:'Unbounded','Trebuchet MS',system-ui,sans-serif;
   --f-body:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --f-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -127,7 +128,7 @@ textarea{resize:vertical}
 .dim{position:absolute;left:50%;bottom:-44px;transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);font:500 11px/1 var(--f-mono);padding:5px 8px;border-radius:3px;white-space:nowrap}
 .stk{position:absolute;display:flex;align-items:center;gap:8px;padding:6px 12px 6px 7px;background:var(--card);border:1.5px solid var(--edge);border-radius:8px;font:700 13px/1 var(--f-body);box-shadow:3px 3px 0 var(--edge);animation:float 5s ease-in-out infinite;z-index:2}
 .stk b{display:grid;place-items:center;width:22px;height:22px;border-radius:5px;color:#fff;font:700 12px/1 var(--f-display)}
-.stk.s1{top:10%;left:-12px}.stk.s1 b{background:var(--c-word)}
+.stk.s1{top:10%;left:-12px}.stk.s1 b{background:var(--c-cl)}
 .stk.s2{top:46%;right:-12px;animation-delay:-1.6s}.stk.s2 b{background:var(--c-xl)}
 .stk.s3{bottom:8%;left:-12px;animation-delay:-3.1s}.stk.s3 b{background:var(--c-fig)}
 @keyframes float{50%{transform:translateY(-9px) rotate(-1.5deg)}}
@@ -180,7 +181,7 @@ textarea{resize:vertical}
 
 /* ---------- skill ---------- */
 .skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media(max-width:640px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.sk:last-child:nth-child(odd){grid-column:1/-1}}
 .sk{position:relative;text-align:left;display:grid;gap:10px;align-content:space-between;min-height:104px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:3px;cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
 .sk:hover{transform:translateY(-3px)}
 .sk small{font:500 11px/1 var(--f-mono);color:var(--muted)}
@@ -190,6 +191,70 @@ textarea{resize:vertical}
 .fbar{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;margin-top:16px;padding:14px;border:1.5px solid var(--edge);border-radius:6px;background:var(--card);min-height:92px}
 .fbar code{display:block;font:600 13px/1.4 var(--f-mono);color:var(--accent);margin-bottom:4px}
 .fbar p{min-height:3.2em}
+
+
+/* ---------- hero kicker ---------- */
+.kicker{display:inline-block;margin-top:20px;font:500 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border:1.5px solid var(--edge);border-radius:3px;background:var(--card)}
+.kicker + .role{margin-top:16px}
+
+/* ---------- cloud ---------- */
+.stat{list-style:none;margin:6px 0 0;padding:0}
+.stat li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);transition:transform .25s}
+.stat li:last-child{border-bottom:0}
+.stat li:hover{transform:translateX(5px)}
+.stat span{font-weight:600}
+.stat em{font:500 11px/1 var(--f-mono);font-style:normal;color:var(--muted);letter-spacing:.04em}
+.dot{position:relative;width:10px;height:10px;border-radius:50%;display:block}
+.stat .on .dot{background:var(--good)}
+.stat .on .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--good);opacity:0;animation:ring2 2.4s ease-out infinite;animation-delay:calc(var(--i)*.35s)}
+.stat .q .dot{border:1.5px dashed var(--muted)}
+@keyframes ring2{from{transform:scale(.5);opacity:.9}to{transform:scale(1.7);opacity:0}}
+
+/* ---------- CV dicetak ---------- */
+.cvwrap{max-width:900px;margin-inline:auto}
+.printer{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:12px 14px;background:var(--card2);border:1.5px solid var(--edge);border-radius:10px 10px 0 0}
+.led{width:10px;height:10px;border-radius:50%;background:var(--good);flex:none}
+.cvwrap.printing .led{background:var(--warn);animation:blink .35s steps(1) infinite}
+.pr-n{font:600 12px/1 var(--f-mono);letter-spacing:.08em}
+.pr-s{font:500 12px/1 var(--f-mono);color:var(--muted);margin-right:auto;min-width:68px}
+.pr-slot{height:9px;margin-inline:22px;background:var(--ink);border-radius:0 0 5px 5px}
+.tray{display:grid;grid-template-rows:1fr;position:relative;transition:grid-template-rows 3.6s cubic-bezier(.45,.05,.35,1)}
+.tray-in{min-height:0;overflow:hidden}
+.paper-pad{padding:0 8px 8px 0}
+.tray::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);box-shadow:0 0 16px 2px var(--accent);opacity:0;transition:opacity .25s}
+.cvwrap.printing .tray::after{opacity:1}
+.js .cvwrap:not(.on) .tray{grid-template-rows:0fr}
+.paper{background:var(--pap);color:var(--pap-ink);border:1.5px solid var(--edge);box-shadow:6px 6px 0 var(--edge);padding:clamp(16px,3.6vw,34px);display:grid;gap:clamp(16px,3vw,26px);transition:transform 3.6s cubic-bezier(.45,.05,.35,1)}
+.js .cvwrap:not(.on) .paper{transform:translateY(-26px)}
+.cvwrap.snap .tray,.cvwrap.snap .paper,.cvwrap.snap .ph,.cvwrap.snap .stamp{transition:none!important}
+.phead{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding-bottom:18px;border-bottom:3px solid var(--pap-ink)}
+.pname{font:900 clamp(1.5rem,5.4vw,2.6rem)/1.05 var(--f-display);letter-spacing:-.02em}
+.prole{margin-top:14px;font:600 11.5px/1.5 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pap-acc)}
+.pfoto{position:relative;flex:none;width:clamp(84px,18vw,124px)}
+.pfoto img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:top;border:1.5px solid var(--pap-ink);background:var(--pap-side)}
+.stamp{position:absolute;left:-30px;bottom:-12px;padding:6px 8px;border:2.5px solid var(--pap-acc);border-radius:4px;background:var(--pap);color:var(--pap-acc);font:700 10px/1.25 var(--f-mono);letter-spacing:.1em;text-align:center;transform:rotate(-9deg);transition:opacity .15s,transform .5s cubic-bezier(.2,.9,.3,1.5) .25s}
+.js .cvwrap:not(.done) .stamp{opacity:0;transform:scale(1.9) rotate(-22deg)}
+.pbody{display:grid;grid-template-columns:minmax(0,.37fr) minmax(0,.63fr);gap:clamp(16px,3vw,30px)}
+@media(max-width:640px){.pbody{grid-template-columns:minmax(0,1fr)}.pmain{order:-1}.stamp{left:-18px}}
+.pside{background:var(--pap-side);padding:16px;display:grid;gap:20px;align-content:start}
+.pmain{display:grid;gap:20px;align-content:start}
+.pt{margin:0 0 10px;font:700 11.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;display:inline-block}
+.ph{background:linear-gradient(transparent 55%,var(--pap-hl) 55% 92%,transparent 92%) 0 0/100% 100% no-repeat;transition:background-size .8s ease;transition-delay:calc(var(--k,0)*.14s)}
+.js .cvwrap:not(.done) .ph{background-size:0% 100%}
+.pl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pl li{display:grid;gap:2px}
+.pl b{font:500 10.5px/1.2 var(--f-mono);color:var(--pap-mute);text-transform:uppercase;letter-spacing:.06em}
+.pl span,.pside p{font-size:13.5px;line-height:1.5;overflow-wrap:anywhere}
+.dl{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:13.5px;line-height:1.4}
+.dl li{position:relative;padding-left:14px}
+.dl li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;background:var(--pap-acc)}
+.pmain p{font-size:14.5px;line-height:1.65;max-width:62ch}
+.org{font:700 15px/1.3 var(--f-display);margin:0}
+.psub{font:500 12px/1.5 var(--f-mono);color:var(--pap-mute);margin:4px 0 8px}
+.pmain .dl{margin-top:2px}
+.pchips{display:flex;flex-wrap:wrap;gap:6px}
+.pchips span{font:600 12px/1 var(--f-body);padding:7px 10px;border:1.5px solid var(--pap-ink);border-radius:999px}
+.purl{font:500 12.5px/1.5 var(--f-mono);color:var(--pap-acc);overflow-wrap:anywhere}
 
 /* ---------- lab ---------- */
 .labtabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:-1px;position:relative;z-index:1}
@@ -375,15 +440,17 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
         <span class="big" aria-hidden="true"><span class="mk" data-split>Enrico</span></span>
         <span class="sub2" aria-hidden="true"><span data-split>Ali</span> <span class="acc" data-split>Wardhany</span></span>
       </h1>
-      <p class="role"><span class="mono">Bisa kubantu:</span> <strong id="tw">administrasi dokumen</strong><i class="caret" aria-hidden="true"></i></p>
-      <p class="lead">Lulusan SMK Bunga Persada Cianjur jurusan Otomatisasi Tata Kelola Perkantoran. Rapi urusan dokumen, nyaman main Excel, suka ngoprek tampilan di Figma, dan lagi seru kolaborasi sama AI buat nulis HTML dan CSS.</p>
+      <p class="kicker">IT Support &amp; Cloud Operations Enthusiast</p>
+      <p class="role"><span class="mono">Dunia kerjaku:</span> <strong id="tw">administrasi dan front office</strong><i class="caret" aria-hidden="true"></i></p>
+      <p class="lead">Lulusan SMK Bunga Persada Cianjur jurusan Otomatisasi Tata Kelola Perkantoran, dengan 3 bulan magang di akreditasi dan front office. Sekarang lagi menyelam ke IT support dan cloud operations: VPS, Windows Server, RDP. Ditambah Excel, Figma, dan AI buat bantu nulis HTML dan CSS.</p>
       <div class="cta">
-        <a class="btn primary" href="#lab" data-go="lab">Intip lab-nya</a>
+        <a class="btn primary" href="#cv" data-go="cv">Cetak CV-ku</a>
+        <a class="btn" href="#lab" data-go="lab">Intip lab-nya</a>
         <a class="btn" href="#kontak" data-go="kontak">Ajak ngobrol</a>
       </div>
       <dl class="stats">
         <div><dt>bulan magang</dt><dd><span data-count="3">3</span></dd></div>
-        <div><dt>keahlian</dt><dd><span data-count="6">6</span></dd></div>
+        <div><dt>keahlian</dt><dd><span data-count="9">9</span></dd></div>
         <div><dt>demo di lab</dt><dd><span data-count="4">4</span></dd></div>
       </dl>
     </div>
@@ -394,7 +461,7 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
         <i class="hd tl"></i><i class="hd tr"></i><i class="hd bl"></i><i class="hd br"></i>
       </div>
       <span class="dim" id="dim">330 × 383</span>
-      <span class="stk s1"><b>W</b>Word</span>
+      <span class="stk s1"><b>V</b>VPS</span>
       <span class="stk s2"><b>X</b>Excel</span>
       <span class="stk s3"><b>F</b>Figma</span>
     </div>
@@ -402,16 +469,17 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
 </section>
 
 <div class="mq" aria-hidden="true"><div class="mq-track" id="mq">
-  <span>Microsoft Word</span><span>Microsoft Excel</span><span>Figma</span><span>AI prompting</span><span>HTML &amp; CSS</span><span>Administrasi dokumen</span><span>Front office</span>
+  <span>VPS &amp; Cloud</span><span>Windows Server</span><span>RDP</span><span>Microsoft Excel</span><span>Figma</span><span>AI prompting</span><span>HTML &amp; CSS</span><span>Front office</span>
 </div></div>
 
 <section class="sec" id="profil" data-sec data-cell="B4" data-fx="=KENALAN(aku)">
   <div class="sh" data-r><span class="cell">B4</span><h2>Kenalan dulu, yuk.</h2><p>Versi singkatnya ada di bawah, jadi kamu nggak perlu baca CV panjang-panjang.</p></div>
   <div class="two">
     <div class="prose" data-r>
-      <p>Aku Enrico, lulusan Otomatisasi Tata Kelola Perkantoran dari SMK Bunga Persada Cianjur. Tiga bulan magang di bagian akreditasi dan front office kampus bikin aku terbiasa sama alur kerja, koordinasi, dan pelayanan.</p>
-      <p>Di luar urusan berkas, aku suka bikin tampilan. Rancangan sederhana kubuat di Figma, lalu jadi HTML dan CSS dengan bantuan AI. Aku nggak nyembunyiin itu: nyusun prompt yang jelas juga keahlian, dan web ini salah satu buktinya.</p>
-      <p>Sekarang aku lagi cari tempat buat belajar sambil berkontribusi di administrasi perkantoran, digital support, atau desain antarmuka.</p>
+      <p>Aku Enrico, lulusan Otomatisasi Tata Kelola Perkantoran dari SMK Bunga Persada Cianjur. Tiga bulan magang di bagian akreditasi dan front office bikin aku terbiasa sama alur kerja, koordinasi, dan pelayanan.</p>
+      <p>Belakangan aku makin penasaran sama sisi teknisnya: VPS, virtual machine, akses RDP, sampai instalasi Windows Server. Aku juga jajal Linode, DigitalOcean, dan UpCloud, sambil pelan-pelan melatih troubleshooting.</p>
+      <p>Di luar itu aku suka bikin tampilan. Rancangan sederhana kubuat di Figma, lalu jadi HTML dan CSS dengan bantuan AI. Nyusun prompt yang jelas juga keahlian, dan web ini salah satu buktinya.</p>
+      <p>Sekarang aku cari tempat buat belajar sambil berkontribusi di IT support, cloud operations, atau digital support.</p>
     </div>
     <div class="sheet-wrap" data-r style="--d:.12s"><table class="sheet" id="ptable">
       <thead><tr><th></th><th>A</th><th>B</th></tr></thead>
@@ -421,7 +489,7 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
         <tr><th class="rn" scope="row">3</th><td class="k">Sekolah</td><td>SMK Bunga Persada Cianjur</td></tr>
         <tr><th class="rn" scope="row">4</th><td class="k">Jurusan</td><td>Otomatisasi Tata Kelola Perkantoran</td></tr>
         <tr><th class="rn" scope="row">5</th><td class="k">Magang</td><td>Universitas Prof. Dr. Hafiz, 3 bulan</td></tr>
-        <tr><th class="rn" scope="row">6</th><td class="k">Lagi cari</td><td>Administrasi perkantoran, digital support, desain antarmuka</td></tr>
+        <tr><th class="rn" scope="row">6</th><td class="k">Fokus karier</td><td>IT support, cloud operations, digital support</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -450,14 +518,40 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
   </div>
 </section>
 
-<section class="sec" id="skill" data-sec data-cell="D12" data-fx="=ALAT(Word; Excel; Figma; AI)">
+<section class="sec" id="skill" data-sec data-cell="D12" data-fx="=ALAT(VPS; Excel; Figma; AI)">
   <div class="sh" data-r><span class="cell">D12</span><h2>Alat tempurku.</h2><p>Klik salah satu sel. Penjelasannya muncul di bar rumus bawahnya.</p></div>
   <div class="skills" id="skills" role="group" aria-label="Daftar keahlian" data-r></div>
   <div class="fbar" id="skfb" data-r><span class="fxl" aria-hidden="true">fx</span><div><code id="skf"></code><p id="skd" aria-live="polite"></p></div></div>
 </section>
 
-<section class="sec" id="lab" data-sec data-cell="E16" data-fx="=COBA(demo)">
-  <div class="sh" data-r><span class="cell">E16</span><h2>Lab: bukan sekadar gambar.</h2><p>Empat demo kecil yang bisa kamu pencet langsung. Semua angka dan nama di dalamnya contoh, bukan data asli.</p></div>
+<section class="sec" id="cloud" data-sec data-cell="E16" data-fx="=VPS(belajar; terus)">
+  <div class="sh" data-r><span class="cell">E16</span><h2>Lagi nyemplung ke dunia cloud.</h2><p>Minatku makin ke arah IT support dan cloud operations. Kiri ini yang sudah kujelajahi, kanan yang antre buat dipelajari berikutnya.</p></div>
+  <div class="two">
+    <div class="card" data-r>
+      <p class="lb">Sudah kujelajahi</p>
+      <ul class="stat">
+        <li class="on" style="--i:0"><i class="dot"></i><span>Konsep VPS</span><em>dipelajari</em></li>
+        <li class="on" style="--i:1"><i class="dot"></i><span>Virtual machine</span><em>dipelajari</em></li>
+        <li class="on" style="--i:2"><i class="dot"></i><span>Akses RDP</span><em>dipelajari</em></li>
+        <li class="on" style="--i:3"><i class="dot"></i><span>Instalasi Windows Server</span><em>dipelajari</em></li>
+        <li class="on" style="--i:4"><i class="dot"></i><span>Linode, DigitalOcean, UpCloud</span><em>dijelajahi</em></li>
+      </ul>
+    </div>
+    <div class="card" data-r style="--d:.12s">
+      <p class="lb">Antre berikutnya</p>
+      <ul class="stat">
+        <li class="q"><i class="dot"></i><span>Jaringan</span><em>antre</em></li>
+        <li class="q"><i class="dot"></i><span>Monitoring</span><em>antre</em></li>
+        <li class="q"><i class="dot"></i><span>Analisis log</span><em>antre</em></li>
+        <li class="q"><i class="dot"></i><span>Penanganan insiden</span><em>antre</em></li>
+        <li class="q"><i class="dot"></i><span>Dokumentasi teknis</span><em>antre</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lab" data-sec data-cell="F20" data-fx="=COBA(demo)">
+  <div class="sh" data-r><span class="cell">F20</span><h2>Lab: bukan sekadar gambar.</h2><p>Empat demo kecil yang bisa kamu pencet langsung. Semua angka dan nama di dalamnya contoh, bukan data asli.</p></div>
   <div data-r>
   <div class="labtabs" id="labtabs" role="tablist" aria-label="Demo di lab">
     <button role="tab" id="t0" aria-controls="p0" aria-selected="true" type="button">Login dan Dashboard</button>
@@ -547,14 +641,58 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
   </div>
 </section>
 
-<section class="sec" id="kontak" data-sec data-cell="F20" data-fx="=NGOBROL(yuk)">
-  <div class="sh" data-r><span class="cell">F20</span><h2>Yuk, ngobrol dulu.</h2><p>Lagi buka diri buat posisi administrasi perkantoran, digital support, dan desain antarmuka. Pilih cara yang paling enak buatmu.</p></div>
+<section class="sec" id="cv" data-sec data-cell="G24" data-fx="=CETAK(cv)">
+  <div class="sh" data-r><span class="cell">G24</span><h2>CV-ku, langsung dari printer.</h2><p>Ini bukan foto dokumen. Halaman ini dicetak beneran di depan matamu. Mau lihat lagi? Tinggal cetak ulang.</p></div>
+  <div class="cvwrap" id="cvwrap">
+    <div class="printer" id="printer"><i class="led" aria-hidden="true"></i><span class="pr-n">PRINTER CV-01</span><span class="pr-s" id="prst" role="status" aria-live="polite">siap</span><button class="btn sm" id="reprint" type="button">Cetak ulang</button></div>
+    <div class="pr-slot" aria-hidden="true"></div>
+    <div class="tray"><div class="tray-in"><div class="paper-pad">
+      <article class="paper" aria-label="CV Enrico Ali Wardhany">
+        <header class="phead">
+          <div><h3 class="pname">ENRICO ALI<br>WARDHANY</h3><p class="prole">IT Support &amp; Cloud Operations Enthusiast</p></div>
+          <div class="pfoto"><img id="cvphoto" alt="Foto Enrico Ali Wardhany" width="544" height="631"><span class="stamp" aria-hidden="true">CV<br>TERBARU</span></div>
+        </header>
+        <div class="pbody">
+          <aside class="pside">
+            <section><h4 class="pt ph" style="--k:0">Kontak</h4>
+              <ul class="pl"><li><b>Telepon</b><span>0895-6053-06708</span></li><li><b>Email</b><span>enricoaliwardhany67@gmail.com</span></li><li><b>Domisili</b><span>Cianjur, Jawa Barat</span></li></ul></section>
+            <section><h4 class="pt ph" style="--k:1">Keahlian</h4>
+              <ul class="dl"><li>Eksplorasi cloud &amp; VPS</li><li>Microsoft Word &amp; Excel</li><li>Windows Server &amp; RDP (minat)</li><li>Digital Marketing &amp; E-Commerce</li><li>Desain UI dengan Figma</li><li>AI Prompting</li><li>HTML &amp; CSS berbantuan AI</li></ul></section>
+            <section><h4 class="pt ph" style="--k:2">Tools</h4>
+              <ul class="dl"><li>Microsoft Office</li><li>Figma</li><li>HTML / CSS</li><li>AI tools</li><li>Shopee &amp; Tokopedia</li></ul></section>
+            <section><h4 class="pt ph" style="--k:3">Fokus karier</h4><p>IT Support &bull; Cloud Operations &bull; Digital Support</p></section>
+            <section><h4 class="pt ph" style="--k:4">Portofolio online</h4><p><b>Website proyek &amp; demo interaktif</b></p><p class="purl">enricoaliwardhanyy7.github.io/myportoeric/</p></section>
+          </aside>
+          <div class="pmain">
+            <section><h4 class="pt ph" style="--k:0">Profil singkat</h4>
+              <p>Lulusan SMK Bunga Persada Cianjur jurusan Otomatisasi Tata Kelola Perkantoran dengan pengalaman magang 3 bulan di bidang akreditasi dan front office. Memiliki minat pada cloud computing, VPS, Windows Server dan RDP. Terbiasa menggunakan Microsoft Office, Figma, serta AI untuk mendukung pengembangan HTML dan CSS. Ingin mengembangkan kemampuan troubleshooting dan operasional infrastruktur IT.</p></section>
+            <section><h4 class="pt ph" style="--k:1">Pengalaman magang</h4>
+              <p class="org">UNIVERSITAS PROF. DR. HAFIZ</p><p class="psub">Akreditasi &amp; Front Office | Magang 3 bulan</p>
+              <ul class="dl"><li>Mendukung pekerjaan administrasi terkait kegiatan akreditasi.</li><li>Membantu aktivitas front office dan kebutuhan operasional harian.</li><li>Beradaptasi dengan alur kerja, koordinasi, dan pelayanan institusi.</li></ul></section>
+            <section><h4 class="pt ph" style="--k:2">Pendidikan</h4>
+              <p class="org">SMK BUNGA PERSADA CIANJUR</p><p class="psub">Otomatisasi Tata Kelola Perkantoran | 2023–2024</p></section>
+            <section><h4 class="pt ph" style="--k:3">Minat &amp; pengembangan teknis</h4>
+              <p>Mempelajari konsep VPS, virtual machine, akses RDP dan instalasi Windows Server, serta mengeksplorasi Linode, DigitalOcean dan UpCloud. Tertarik mendalami jaringan, monitoring, analisis log, penanganan insiden dan dokumentasi teknis.</p></section>
+            <section><h4 class="pt ph" style="--k:4">Portofolio digital</h4>
+              <p class="org">WEBSITE PORTOFOLIO PRIBADI</p>
+              <ul class="dl"><li>Demo buku tamu digital dan dashboard front office.</li><li>Demo kalkulator ATK serta analisis data sederhana.</li><li>Eksplorasi wireframe dan desain antarmuka UI.</li></ul></section>
+            <section><h4 class="pt ph" style="--k:5">Kompetensi pendukung</h4>
+              <div class="pchips"><span>Komunikasi dan pelayanan</span><span>Dokumentasi</span><span>Kolaborasi</span><span>Adaptasi</span><span>Belajar mandiri</span></div></section>
+          </div>
+        </div>
+      </article>
+    </div></div></div>
+  </div>
+</section>
+
+<section class="sec" id="kontak" data-sec data-cell="H28" data-fx="=NGOBROL(yuk)">
+  <div class="sh" data-r><span class="cell">H28</span><h2>Yuk, ngobrol dulu.</h2><p>Lagi cari kesempatan di IT support, cloud operations, dan digital support. Pilih cara yang paling enak buatmu.</p></div>
   <div class="two">
     <div data-r>
       <div class="crow"><div><p class="k">Email</p><p class="v" id="mailv">enricoaliwardhany67@gmail.com</p></div><button class="btn sm" type="button" data-copy="enricoaliwardhany67@gmail.com">Salin</button></div>
       <div class="crow"><div><p class="k">WhatsApp</p><p class="v">0895-6053-06708</p></div><button class="btn sm" type="button" data-copy="0895605306708">Salin</button></div>
       <div class="crow"><div><p class="k">Domisili</p><p class="v">Cianjur, Jawa Barat</p></div></div>
-      <div class="tags"><span>Administrasi perkantoran</span><span>Digital support</span><span>Desain antarmuka</span></div>
+      <div class="tags"><span>IT support</span><span>Cloud operations</span><span>Digital support</span></div>
     </div>
     <div class="card msg" data-r style="--d:.12s">
       <p class="lb">Pembuat pesan WhatsApp</p>
@@ -575,7 +713,9 @@ pre.struk{margin:0;background:var(--card2);border:1.5px dashed var(--edge);borde
   <button type="button" data-go="profil" aria-current="false">Profil</button>
   <button type="button" data-go="jejak" aria-current="false">Jejak</button>
   <button type="button" data-go="skill" aria-current="false">Skill</button>
+  <button type="button" data-go="cloud" aria-current="false">Cloud</button>
   <button type="button" data-go="lab" aria-current="false">Lab</button>
+  <button type="button" data-go="cv" aria-current="false">CV</button>
   <button type="button" data-go="kontak" aria-current="false">Kontak</button>
 </div></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -715,7 +855,7 @@ $$('[data-split]').forEach(function(el){
 
 /* ---------- ketik ---------- */
 (function(){
-  var tw=$('#tw'),words=['administrasi dokumen','front office dan pelayanan','rekap data di Excel','desain tampilan di Figma','digital support'];
+  var tw=$('#tw'),words=['administrasi dan front office','cloud dan VPS','Windows Server dan RDP','rekap data di Excel','desain tampilan di Figma','digital support'];
   if(RM){return}
   var wi=0,ci=0,del=false;
   (function tick(){
@@ -826,11 +966,14 @@ root.classList.add('js');
 /* ---------- skill ---------- */
 (function(){
   var SK=[
+    {n:'Eksplorasi cloud & VPS',f:'=VPS(jelajah)',d:'Mempelajari konsep VPS dan virtual machine, serta menjelajahi Linode, DigitalOcean, dan UpCloud.'},
+    {n:'Windows Server & RDP',f:'=RDP(belajar)',d:'Mempelajari akses RDP dan instalasi Windows Server. Ini bidang yang paling bikin aku penasaran.'},
     {n:'Microsoft Word',f:'=WORD(dokumen)',d:'Mengolah dan merapikan dokumen.'},
     {n:'Microsoft Excel',f:'=EXCEL(data)',d:'Mengolah data jadi rapi. Cek tab Hitung ATK dan Auto Analisis di Lab buat gambaran cara berpikirku.'},
     {n:'Figma (desain UI)',f:'=FIGMA(tampilan)',d:'Merancang tampilan UI sederhana. Alurnya bisa kamu lihat di tab Desain UI.'},
     {n:'AI prompting',f:'=PROMPT(jelas)',d:'Menyusun prompt yang jelas supaya AI bisa bantu membuat dan mengembangkan kode HTML dan CSS, sampai bikin hal-hal otomatis ala bot. Aku memakai model AI seperti Claude Opus untuk itu.'},
     {n:'HTML & CSS (dibantu AI)',f:'=HTML(+AI)',d:'Web yang sedang kamu baca ini salah satu hasilnya.'},
+    {n:'Digital Marketing & E-Commerce',f:'=TOKO(online)',d:'Memakai Shopee dan Tokopedia sebagai tools untuk digital marketing dan e-commerce.'},
     {n:'Administrasi dokumen',f:'=ARSIP(rapi)',d:'Mengurus dan menata dokumen supaya gampang dicari lagi. Demo Meja Depan di Lab ngasih gambarannya.'}
   ];
   var box=$('#skills'),f=$('#skf'),d=$('#skd'),cur=-1,tm,auto=null,manual=false;
@@ -1031,10 +1174,31 @@ var opened={};var onOpen={};
   if(LINKS.figma){var a=$('#figlink');a.href=LINKS.figma;a.hidden=false}
 })();
 
+/* ---------- CV: dicetak dari printer ---------- */
+(function(){
+  var wrap=$('#cvwrap'),st=$('#prst'),ph=$('#cvphoto'),src=$('#shotframe img'),timers=[],btn=$('#reprint');
+  if(ph&&src)ph.src=src.src;
+  function clear(){timers.forEach(clearTimeout);timers=[]}
+  function later(fn,ms){timers.push(setTimeout(fn,ms))}
+  function show(){clear();wrap.classList.add('on','done');wrap.classList.remove('printing');st.textContent='selesai'}
+  function play(){
+    clear();
+    wrap.classList.add('snap');wrap.classList.remove('on','done','printing');void wrap.offsetWidth;wrap.classList.remove('snap');
+    st.textContent='siap';
+    later(function(){wrap.classList.add('on','printing');st.textContent='mencetak…'},450);
+    later(function(){wrap.classList.remove('printing');wrap.classList.add('done');st.textContent='selesai'},450+3700);
+  }
+  if(RM){btn.hidden=true;show();return}
+  var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();play()}},{rootMargin:'0px 0px -30% 0px'});
+  io.observe($('#printer'));
+  btn.addEventListener('click',play);
+})();
+
 /* ---------- kontak ---------- */
 (function(){
   var INT=[
-    ['Ada lowongan administrasi','Halo Enrico, aku lihat portofoliomu. Kami lagi buka posisi administrasi dan kamu kelihatan cocok. Boleh ngobrol?'],
+    ['Lowongan IT support','Halo Enrico, aku lihat portofoliomu. Kami buka posisi IT support dan kamu kelihatan cocok. Boleh ngobrol?'],
+    ['Posisi cloud operations','Halo Enrico, aku lihat portofoliomu. Kami buka posisi di cloud operations dan tertarik ngobrol denganmu. Boleh?'],
     ['Butuh digital support','Halo Enrico, aku lihat portofoliomu. Kami butuh bantuan digital support. Boleh ngobrol soal kemungkinannya?'],
     ['Proyek desain UI','Halo Enrico, aku lihat portofoliomu. Ada proyek tampilan (UI) kecil yang mau didiskusikan. Boleh ngobrol?']
   ];
